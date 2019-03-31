@@ -30,7 +30,7 @@ after_script:
 - docker images
 
 deploy:
-  script: sudo -E bash ./module.sh "." "./release.sh"
+  script: sudo -E bash ./module.sh "." "./release.sh" "sequel"
   provider: script
   skip_cleanup: true
   on:
