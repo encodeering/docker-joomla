@@ -1,0 +1,79 @@
+version: '3.5'
+services:
+  traefik:
+    image: encodeering/traefik-${ARCH:-armhf}:1.7-alpine
+    command: |
+      --api
+      --api.entryPoint='api'
+      --logLevel='INFO'
+      --defaultentrypoints='http,https'
+      --entryPoints='Name:api Address::8080'
+      --entryPoints='Name:http Address::80 Redirect.EntryPoint:https'
+      --entryPoints='Name:https Address::443 TLS'
+      --docker
+      --docker.exposedbydefault=false
+      --acme
+      --acme.email='${EMAIL}'
+      --acme.entrypoint='https'
+      --acme.httpchallenge.entrypoint='http'
+      --acme.storage='/data/acme.json'
+      --acme.onhostrule=true
+    volumes:
+      - proxy:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    networks:
+      traefik:
+
+  nginx:
+    image: encodeering/joomla-${ARCH:-armhf}:${VERSION:-3.9}-alpine-nginx
+    volumes:
+      - www:/var/www/html
+    depends_on:
+      - joomla
+    environment:
+      VHOST: ssl-off
+    labels:
+      traefik.frontend.rule: Host:${DOMAIN}
+      traefik.port: 80
+      traefik.enable: true
+      traefik.docker.network: traefik
+    networks:
+      joomla:
+      traefik:
+
+  joomla:
+    image: encodeering/joomla-${ARCH:-armhf}:${VERSION:-3.9}-debian-fpm-sequel
+    volumes:
+      - www:/var/www/html
+    depends_on:
+      - postgres
+    networks:
+      joomla:
+        aliases:
+          - php
+
+  postgres:
+    image: encodeering/postgres-${ARCH:-armhf}:9.6-alpine
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${SECRET:-secret}
+      POSTGRES_DB: joomla
+    networks:
+      joomla:
+
+volumes:
+  www:
+  db:
+  proxy:
+
+networks:
+  joomla:
+    name: joomla
+  traefik:
+    name: traefik
