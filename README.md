@@ -16,6 +16,18 @@
     ```docker pull encodeering/joomla-amd64:3.9-debian-fpm-sequel```  
     ```docker pull encodeering/joomla-amd64:3.9-alpine-nginx```
 
+### Configuration
+
+Nginx sequel image inherits two environment configurations
+
+1. VHOST_CUSTOMIZATION: "true"
+
+   If set, creates a `nginx` directory within `/var/www/html` with proper permissions and includes any nginx configuration.
+
+2. VHOST_CANONICAL: "www-only" | "www-off"
+
+   If set, creates an additional server block and either redirects from www to non-www, or non-www to www
+
 ### Setup
 
 1. Install [docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install)
