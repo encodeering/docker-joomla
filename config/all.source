@@ -1,3 +1,3 @@
 SCM_SOURCE=https://github.com/joomla/docker-joomla.git
 SCM_TARGET=modules/$VARIANT/$PROJECT
-SCM_COMMIT=4639ebf77c1ad8f7ff0c1190629293c400dcc3aa
+SCM_COMMIT=958ba034a89ce1488254afe5e997aa40910322ae
