@@ -1,0 +1,7 @@
+[
+    {
+        "var": "phpupstream",
+        "hostname": "$PHP_UPSTREAM_HOST",
+        "port": "$PHP_UPSTREAM_PORT"
+    }
+]
