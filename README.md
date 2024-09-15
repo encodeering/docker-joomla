@@ -1,20 +1,9 @@
 ## Automatically created docker image for joomla
 
-[![Build Status](https://travis-ci.org/encodeering/docker-joomla.svg?branch=master)](https://travis-ci.org/encodeering/docker-joomla)
-
 ### Docker Joomla ([Origin](https://github.com/joomla/docker-joomla))
 
 - https://hub.docker.com/r/encodeering/joomla-armhf/
-
-    ```docker pull encodeering/joomla-armhf:3.9-debian-fpm```  
-    ```docker pull encodeering/joomla-armhf:3.9-debian-fpm-sequel```  
-    ```docker pull encodeering/joomla-armhf:3.9-alpine-nginx```
-
 - https://hub.docker.com/r/encodeering/joomla-amd64/
-
-    ```docker pull encodeering/joomla-amd64:3.9-debian-fpm```  
-    ```docker pull encodeering/joomla-amd64:3.9-debian-fpm-sequel```  
-    ```docker pull encodeering/joomla-amd64:3.9-alpine-nginx```
 
 ### Configuration
 
