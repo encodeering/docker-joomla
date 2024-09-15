@@ -1,0 +1,10 @@
+{
+    "concourse": {
+        "dind": "unstable"
+    },
+    "platforms": ["amd64", "armhf"],
+    "pipelines": [
+        { "project": "joomla", "base": "debian", "version": "3.9", "variant": "fpm"   },
+        { "project": "joomla", "base": "alpine", "version": "3.9", "variant": "nginx" }
+    ]
+}
