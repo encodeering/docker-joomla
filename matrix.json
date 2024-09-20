@@ -1,0 +1,16 @@
+{
+    "concourse": {
+        "dind": "0.1.17"
+    },
+    "platforms": ["amd64", "armhf"],
+    "pipelines": [
+        { "project": "joomla", "base": "debian", "version": "4.4", "variant": "fpm"   },
+        { "project": "joomla", "base": "debian", "version": "4.4", "variant": "nginx" },
+        { "project": "joomla", "base": "debian", "version": "5.1", "variant": "fpm"   },
+        { "project": "joomla", "base": "debian", "version": "5.1", "variant": "nginx" },
+        { "project": "joomla", "base": "alpine", "version": "4.4", "variant": "fpm"   },
+        { "project": "joomla", "base": "alpine", "version": "4.4", "variant": "nginx" },
+        { "project": "joomla", "base": "alpine", "version": "5.1", "variant": "fpm"   },
+        { "project": "joomla", "base": "alpine", "version": "5.1", "variant": "nginx" }
+    ]
+}
