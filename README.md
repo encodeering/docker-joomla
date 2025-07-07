@@ -23,9 +23,9 @@ Nginx sequel image inherits two environment configurations
 1. Download [nginx](examples/nginx/docker-compose.yml) docker-compose.yml file
 1. Setup ddns and configure port forwarding on your router
 1. Run `export EMAIL=your@email.com`
-1. Run `export DOMAIN=ddns.domain.com`
+1. Run `export DOMAIN=your.domain.com`
 1. Run `export SECRET=secret` [default]
-1. Run `export VERSION=3.9` [default]
+1. Run `export VERSION=5.1` [default]
 1. Run `export ARCH=armhf` [default]
 1. Run `docker-compose up`
 1. Open browser and check connectivity
